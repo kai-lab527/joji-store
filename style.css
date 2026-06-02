@@ -333,16 +333,20 @@ footer p { font-size:9px;color:var(--muted);letter-spacing:2px; }
     align-items: center;
     justify-content: center;
     transform: scale(0);
-    transition: transform .3s cubic-bezier(.68,-.55,.27,1.55);
+    transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     letter-spacing: 0;
     font-weight: bold;
     z-index: 10;
 }
 
+.cart-badge.on { 
+    transform: scale(1); 
+}
+
+/* For the nav cart button */
 .nav-btn {
     position: relative;
 }
-
 .cart-badge.on { 
     transform: scale(1); 
 }
@@ -473,4 +477,56 @@ footer p { font-size:9px;color:var(--muted);letter-spacing:2px; }
 .stream-btn.youtube:hover {
   background: #cc0000;
   transform: scale(1.02);
+}
+
+.stream-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stream-btn {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 6px 14px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stream-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.stream-btn.spotify {
+  background: rgba(29, 185, 84, 0.25);
+  color: #1DB954;
+  border-color: rgba(29, 185, 84, 0.5);
+}
+
+.stream-btn.spotify:hover {
+  background: rgba(29, 185, 84, 0.45);
+  transform: scale(1.02);
+  border-color: rgba(29, 185, 84, 0.8);
+}
+
+.stream-btn.youtube {
+  background: rgba(255, 0, 0, 0.25);
+  color: #FF4444;
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+.stream-btn.youtube:hover {
+  background: rgba(255, 0, 0, 0.45);
+  transform: scale(1.02);
+  border-color: rgba(255, 0, 0, 0.8);
 }

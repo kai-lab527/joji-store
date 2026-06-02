@@ -382,3 +382,7 @@ heroRight.addEventListener('mouseleave', () => { document.getElementById('heroCD
 heroRight.addEventListener('mouseenter', () => { document.querySelector('.cd').style.animationPlayState = 'paused'; });
 heroRight.addEventListener('mouseleave', () => { document.querySelector('.cd').style.animationPlayState = 'running'; });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeYT(); });
+
+function openSpotify(url) {
+  window.open(url, '_blank');
+}

@@ -433,3 +433,44 @@ footer p { font-size:9px;color:var(--muted);letter-spacing:2px; }
   background: #cc0000;
   transform: scale(1.05);
 }
+
+.stream-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stream-btn {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 14px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  border: none;
+}
+
+.stream-btn.spotify {
+  background: #1DB954;
+  color: white;
+}
+
+.stream-btn.spotify:hover {
+  background: #1ed760;
+  transform: scale(1.02);
+}
+
+.stream-btn.youtube {
+  background: #FF0000;
+  color: white;
+}
+
+.stream-btn.youtube:hover {
+  background: #cc0000;
+  transform: scale(1.02);
+}

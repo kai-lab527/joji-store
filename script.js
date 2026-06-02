@@ -386,3 +386,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeYT(); })
 function openSpotify(url) {
   window.open(url, '_blank');
 }
+
+function openLink(url) {
+  window.open(url, '_blank');
+}

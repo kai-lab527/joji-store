@@ -12,21 +12,22 @@ function scrollToMerch() { document.getElementById('merch-sec').scrollIntoView({
 function scrollToFeatured() { document.getElementById('featured-sec').scrollIntoView({behavior: 'smooth', block: 'start'}); }
 
 // Cart functions
-let cart=[], cartOpen=false;
+let cart = [];
+let cartOpen = false;
 
-function openCart(){ 
-    cartOpen=true; 
+function openCart() { 
+    cartOpen = true; 
     document.getElementById('cartDrawer').classList.add('on'); 
     document.getElementById('overlay').classList.add('on'); 
 }
 
-function closeCart(){ 
-    cartOpen=false; 
+function closeCart() { 
+    cartOpen = false; 
     document.getElementById('cartDrawer').classList.remove('on'); 
     document.getElementById('overlay').classList.remove('on'); 
 }
 
-function addCart(name, price, variant, imgPath){ 
+function addCart(name, price, variant, imgPath) { 
     console.log('Adding to cart:', name, price, variant, imgPath);
     cart.push({
         name: name, 
@@ -40,33 +41,35 @@ function addCart(name, price, variant, imgPath){
     toast('Added — ' + name); 
 }
 
-function removeCart(id){ 
+function removeCart(id) { 
     cart = cart.filter(c => c.id !== id); 
     renderCart(); 
 }
 
-function renderCart(){ 
+function renderCart() { 
     const body = document.getElementById('cartBody'); 
     const empty = document.getElementById('cartEmpty'); 
     const foot = document.getElementById('cartFoot'); 
-    const badge = document.getElementById('cartBadge');
+    const cartBadge = document.getElementById('cartBadge');
     const navBadge = document.getElementById('cartBadgeNav');
     
     body.innerHTML = ''; 
     
-    if(!cart.length){ 
+    if (cart.length === 0) { 
         body.appendChild(empty); 
         foot.style.display = 'none'; 
-        if(badge) badge.classList.remove('on');
-        if(navBadge) navBadge.classList.remove('on');
+        // Remove the red dot (badge) when cart is empty
+        if (cartBadge) cartBadge.classList.remove('on');
+        if (navBadge) navBadge.classList.remove('on');
         return; 
     } 
     
-    if(badge) {
-        badge.textContent = cart.length;
-        badge.classList.add('on');
+    // Show red dot with item count when cart has items
+    if (cartBadge) {
+        cartBadge.textContent = cart.length;
+        cartBadge.classList.add('on');
     }
-    if(navBadge) {
+    if (navBadge) {
         navBadge.textContent = cart.length;
         navBadge.classList.add('on');
     }
@@ -90,22 +93,15 @@ function renderCart(){
     document.getElementById('cartTotal').textContent = '$' + total.toFixed(2); 
 }
 
-function flashBtn(btn){ 
-    const originalText = btn.textContent; 
-    btn.classList.add('done'); 
-    btn.textContent = '✓ Added'; 
-    setTimeout(() => {
-        btn.classList.remove('done'); 
-        btn.textContent = originalText;
-    }, 1800); 
-}
-
-function toast(msg){ 
-    const t = document.getElementById('toast'); 
-    t.textContent = msg; 
-    t.classList.add('on'); 
-    clearTimeout(t._t); 
-    t._t = setTimeout(() => t.classList.remove('on'), 2600); 
+function checkout() {
+    if (cart.length === 0) {
+        toast('Your bag is empty!');
+        return;
+    }
+    cart = [];
+    renderCart();
+    closeCart();
+    toast('Thank you for your purchase! 🎵');
 }
 
 // Featured section variables

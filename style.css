@@ -563,3 +563,189 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
+/* ========== MOBILE RESPONSIVE (ADD THIS AT THE BOTTOM OF YOUR CSS) ========== */
+
+@media (max-width: 768px) {
+  /* Hide desktop nav links on mobile */
+  .nav-links {
+    display: none;
+  }
+  
+  /* Make hero stack vertically */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .hero-left {
+    text-align: center;
+  }
+  
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-btns {
+    justify-content: center;
+  }
+  
+  /* 2 column merch on tablet, 1 on mobile */
+  .merch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Featured section stacks */
+  .featured-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Reduce padding */
+  .sec {
+    padding: 40px 20px;
+  }
+  
+  .sec-title {
+    font-size: 32px;
+  }
+  
+  /* Music grid single column */
+  .music-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Smaller CD on mobile */
+  .cd-wrap {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* Footer stack */
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  /* Smaller hero text */
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .hero-bg-word {
+    font-size: 120px;
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Single column merch on small phones */
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sec {
+    padding: 30px 16px;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .btn-red, .btn-ghost {
+    padding: 10px 20px;
+    font-size: 9px;
+  }
+  
+  /* Make buttons stack */
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Smaller player on mobile */
+  .player {
+    padding: 8px;
+  }
+  
+  .player-art {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .player-song {
+    font-size: 10px;
+  }
+  
+  .player-controls {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .pc-play {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .player-progress {
+    flex: 1;
+  }
+  
+  /* Smaller volume control */
+  .player-vol {
+    min-width: auto;
+  }
+  
+  .vol-slider {
+    width: 50px;
+  }
+  
+  /* Smaller thumbnail on songs */
+  .song-thumb {
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* Stream buttons stack on mobile */
+  .stream-links {
+    flex-wrap: wrap;
+  }
+  
+  .stream-btn {
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+  
+  /* Smaller price text */
+  .feat-price {
+    font-size: 32px;
+  }
+  
+  .feat-title {
+    font-size: 28px;
+  }
+  
+  /* Hide custom cursor on mobile */
+  #cur, #cur-ring {
+    display: none;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .merch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-title {
+    font-size: 64px;
+  }
+  
+  .sec {
+    padding: 50px 30px;
+  }
+}

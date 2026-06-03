@@ -472,3 +472,36 @@ document.addEventListener('keydown', e => {
         if (overlay) overlay.classList.remove('open');
     }
 });
+
+// ========== MOBILE MENU ==========
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+    });
+}
+
+if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+    });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+            mobileMenu.classList.remove('open');
+        }
+    }
+});
